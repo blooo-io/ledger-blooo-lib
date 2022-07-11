@@ -14,7 +14,7 @@
 #*  limitations under the License.
 #********************************************************************************
 cmake_minimum_required(VERSION 3.0)
-project(ledger-zxlib)
+project(ledger-blooo-lib)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -26,7 +26,7 @@ include_directories(
 
 ###############
 
-file(GLOB_RECURSE ZXLIB_SRC
+file(GLOB_RECURSE BLOOO_LIB_SRC
         ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
         )
 
@@ -37,21 +37,21 @@ file(GLOB_RECURSE TESTS_SRC
 ###############
 set(BUILD_TESTS OFF CACHE BOOL "Enables tests")
 
-add_library(zxlib STATIC ${ZXLIB_SRC})
-target_include_directories(zxlib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_library(blooo_lib STATIC ${BLOOO_LIB_SRC})
+target_include_directories(blooo_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 enable_testing()
 
-add_executable(zxlib_tests
+add_executable(blooo_lib_tests
         ${TESTS_SRC}
         )
 
-target_include_directories(zxlib_tests PRIVATE
+target_include_directories(blooo_lib_tests PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${gtest_SOURCE_DIR}/include
         ${gmock_SOURCE_DIR}/include
         )
 
-target_link_libraries(zxlib_tests gtest_main zxlib)
+target_link_libraries(blooo_lib_tests gtest_main blooo_lib)
 
-add_test(ZXLIB_TESTS zxlib_tests)
+add_test(BLOOO_LIB_TESTS blooo_lib_tests)
