@@ -15,6 +15,6 @@
 ********************************************************************************/
 #pragma once
 
-#define ZXLIB_MAJOR     14
-#define ZXLIB_MINOR     0
-#define ZXLIB_PATCH     5
+#define BLOOO_LIB_MAJOR     1
+#define BLOOO_LIB_MINOR     0
+#define BLOOO_LIB_PATCH     0

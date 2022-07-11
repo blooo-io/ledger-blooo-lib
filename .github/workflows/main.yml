@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 0
           submodules: true
       - id: get-version
-        name: Get zxlib version
+        name: Get blooo lib version
         run: echo ::set-output name=version::$(./scripts/get_version.sh)
       - id: tag-exists
         name: Check if version exists
