@@ -64,23 +64,22 @@ UX_STEP_NOCB(ux_idle_flow_1_step, pbb, { &C_icon_app, MENU_MAIN_APP_LINE1, viewd
 UX_STEP_CB_INIT(ux_idle_flow_2_step, bn,  h_expert_update(), h_expert_toggle(), { "Expert mode:", viewdata.value, });
 UX_STEP_NOCB(ux_idle_flow_3_step, bn, { APPVERSION_LINE1, APPVERSION_LINE2, });
 
-UX_STEP_NOCB(ux_idle_flow_5_step, bn, { "License:", "Apache 2.0", });
-UX_STEP_CB(ux_idle_flow_6_step, pb, os_sched_exit(-1), { &C_icon_dashboard, "Quit",});
+UX_STEP_NOCB(ux_idle_flow_4_step, bn, { "License:", "Apache 2.0", });
+UX_STEP_CB(ux_idle_flow_5_step, pb, os_sched_exit(-1), { &C_icon_dashboard, "Quit",});
 
 #ifdef APP_ACCOUNT_MODE_ENABLED
-UX_STEP_CB_INIT(ux_idle_flow_7_step, bn,  h_account_update(), h_account_toggle(), { "Account:", viewdata.value, });
+UX_STEP_CB_INIT(ux_idle_flow_6_step, bn,  h_account_update(), h_account_toggle(), { "Account:", viewdata.value, });
 #endif
 
 const ux_flow_step_t *const ux_idle_flow [] = {
   &ux_idle_flow_1_step,
   &ux_idle_flow_2_step,
 #ifdef APP_ACCOUNT_MODE_ENABLED
-  &ux_idle_flow_7_step,
+  &ux_idle_flow_6_step,
 #endif
   &ux_idle_flow_3_step,
   &ux_idle_flow_4_step,
   &ux_idle_flow_5_step,
-  &ux_idle_flow_6_step,
   FLOW_END_STEP,
 };
 
@@ -230,7 +229,7 @@ void h_account_toggle() {
     if(app_mode_expert()) {
         account_enabled();
     } else {
-        ux_flow_init(0, ux_idle_flow, &ux_idle_flow_7_step);
+        ux_flow_init(0, ux_idle_flow, &ux_idle_flow_6_step);
     }
 }
 
@@ -261,7 +260,7 @@ void h_secret_click() {
         return;
     }
 
-    ux_flow_init(0, ux_idle_flow, &ux_idle_flow_4_step);
+    ux_flow_init(0, ux_idle_flow, &ux_idle_flow_5_step);
 }
 #endif
 
