@@ -98,7 +98,7 @@ check_python:
 .PHONY: deps
 deps: check_python
 	@echo "Install dependencies"
-	$(CURDIR)/deps/ledger-blooo-lib/scripts/install_deps.sh
+	$(CURDIR)/deps/ledger-zxlib/scripts/install_deps.sh
 
 .PHONY: pull
 pull:
