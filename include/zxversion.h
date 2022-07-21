@@ -17,4 +17,4 @@
 
 #define BLOOO_LIB_MAJOR     1
 #define BLOOO_LIB_MINOR     0
-#define BLOOO_LIB_PATCH     2
+#define BLOOO_LIB_PATCH     3
