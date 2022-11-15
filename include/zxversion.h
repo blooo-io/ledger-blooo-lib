@@ -16,5 +16,5 @@
 #pragma once
 
 #define BLOOO_LIB_MAJOR     1
-#define BLOOO_LIB_MINOR     0
-#define BLOOO_LIB_PATCH     3
+#define BLOOO_LIB_MINOR     1
+#define BLOOO_LIB_PATCH     0
