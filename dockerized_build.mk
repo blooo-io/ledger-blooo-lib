@@ -111,21 +111,22 @@ ledger_lint:
 
 .PHONY: build_rustS
 build_rustS:
-	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -C $(DOCKER_APP_SRC) rust TEST=$(TEST))
+	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -C $(DOCKER_APP_SRC) rust)
 
 .PHONY: build_rustX
 build_rustX:
-	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -C $(DOCKER_APP_SRC) rust TEST=$(TEST))
+	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -C $(DOCKER_APP_SRC) rust)
 
 .PHONY: build_rustS2
 build_rustS2:
-	$(call run_docker,$(DOCKER_BOLOS_SDKS2),make -C $(DOCKER_APP_SRC) rust TEST=$(TEST))
+	$(call run_docker,$(DOCKER_BOLOS_SDKS2),make -C $(DOCKER_APP_SRC) rust)
 
 .PHONY: convert_icon
 convert_icon:
 	@convert $(LEDGER_SRC)/tmp.gif -monochrome -size 16x16 -depth 1 $(LEDGER_SRC)/nanos_icon.gif
 	@convert $(LEDGER_SRC)/nanos_icon.gif -crop 14x14+1+1 +repage -negate $(LEDGER_SRC)/nanox_icon.gif
 
+TEST ?= 0 # Default to main
 .PHONY: buildS
 buildS: build_rustS
 	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -j $(NPROC) -C $(DOCKER_APP_SRC) TEST=$(TEST)) 
