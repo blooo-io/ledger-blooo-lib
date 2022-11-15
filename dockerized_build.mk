@@ -128,7 +128,7 @@ convert_icon:
 
 .PHONY: buildS
 buildS: build_rustS
-	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -j $(NPROC) -C $(DOCKER_APP_SRC)) 
+	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -j $(NPROC) -C $(DOCKER_APP_SRC))
 
 .PHONY: buildX
 buildX: build_rustX
