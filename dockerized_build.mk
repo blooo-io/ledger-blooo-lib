@@ -111,15 +111,15 @@ ledger_lint:
 
 .PHONY: build_rustS
 build_rustS:
-	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -C $(DOCKER_APP_SRC) rust)
+	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -C $(DOCKER_APP_SRC) rust TEST=$(TEST))
 
 .PHONY: build_rustX
 build_rustX:
-	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -C $(DOCKER_APP_SRC) rust)
+	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -C $(DOCKER_APP_SRC) rust TEST=$(TEST))
 
 .PHONY: build_rustS2
 build_rustS2:
-	$(call run_docker,$(DOCKER_BOLOS_SDKS2),make -C $(DOCKER_APP_SRC) rust)
+	$(call run_docker,$(DOCKER_BOLOS_SDKS2),make -C $(DOCKER_APP_SRC) rust TEST=$(TEST))
 
 .PHONY: convert_icon
 convert_icon:
@@ -128,15 +128,15 @@ convert_icon:
 
 .PHONY: buildS
 buildS: build_rustS
-	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -j $(NPROC) -C $(DOCKER_APP_SRC))
+	$(call run_docker,$(DOCKER_BOLOS_SDKS),make -j $(NPROC) -C $(DOCKER_APP_SRC) TEST=$(TEST)) 
 
 .PHONY: buildX
 buildX: build_rustX
-	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -j $(NPROC) -C $(DOCKER_APP_SRC))
+	$(call run_docker,$(DOCKER_BOLOS_SDKX),make -j $(NPROC) -C $(DOCKER_APP_SRC) TEST=$(TEST))
 
 .PHONY: buildS2
 buildS2: build_rustS2
-	$(call run_docker,$(DOCKER_BOLOS_SDKS2),make -j $(NPROC) -C $(DOCKER_APP_SRC))
+	$(call run_docker,$(DOCKER_BOLOS_SDKS2),make -j $(NPROC) -C $(DOCKER_APP_SRC) TEST=$(TEST))
 
 .PHONY: clean_output
 clean_output:
